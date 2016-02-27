@@ -56,8 +56,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Tweesten'
-copyright = u'2016, Raúl Benito'
-author = u'Raúl Benito'
+copyright = '2016, Ral Benito'
+author = 'Raul Benito'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -232,7 +232,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'Tweesten.tex', 'Tweesten Documentation',
-     'Raúl Benito', 'manual'),
+     'Raul Benito', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
