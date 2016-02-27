@@ -4,8 +4,8 @@ From PyPI
 ^^^^^^^^^
     $ pip3 install tweesten
     
-    From sources
-    ^^^^^^^^^^^^
+From sources
+^^^^^^^^^^^^
     * You need at least Python 3.4, PIP and setuptools.
     
     * Untar the tarball and go to the source directory
