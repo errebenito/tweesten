@@ -1,4 +1,4 @@
 Authors
 =======
 
-Raúl Benito <erre.benito@gmail.com>
+u'Raúl Benito' <erre.benito@gmail.com>
