@@ -2,3 +2,4 @@ tweesten/__pycache__/
 *.swp
 config/
 tests.py
+tweesten.egg-info/
