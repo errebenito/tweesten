@@ -34,9 +34,9 @@ setup(
     name='tweesten',
     version='0.1',
     license='GNU GPL v3',
-    description=('twitter bot to tweet a collage of album covers' +
+    description=('twitter bot to tweet a collage of album covers ' +
                  'based on your last.fm scrobbles'),
-    long_description=('twitter bot to tweet a collage of album covers' +
+    long_description=('twitter bot to tweet a collage of album covers ' +
                       'based on your last.fm scrobbles'),
     classifiers=CLASSIFIERS,
     author='Raúl Benito',
