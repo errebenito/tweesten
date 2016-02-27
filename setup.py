@@ -44,6 +44,6 @@ setup(
     url='https://github.com/errebenito/tweesten',
     download_url='https://github.com/errebenito/tweesten/tarball/0.1',
     packages=['tweesten'],
-    scripts=['scripts/tweesten'],
+    scripts=['scripts/tweesten.py'],
     install_requires=['tweepy>=3.5.0'],
 )
