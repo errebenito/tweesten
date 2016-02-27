@@ -32,7 +32,7 @@ CLASSIFIERS = [
 
 setup(
     name='tweesten',
-    version='0.1',
+    version='0.1.1',
     license='GNU GPL v3',
     description=('twitter bot to tweet a collage of album covers ' +
                  'based on your last.fm scrobbles'),
