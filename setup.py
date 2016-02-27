@@ -42,7 +42,7 @@ setup(
     author='Raúl Benito',
     author_email='erre.benito@gmail.com',
     url='https://github.com/errebenito/tweesten',
-    download_url='https://github.com/errebenito/tweesten',
+    download_url='https://github.com/errebenito/tweesten/tarball/0.1',
     packages=['tweesten'],
     scripts=['scripts/tweesten'],
     install_requires=['tweepy>=3.5.0'],
