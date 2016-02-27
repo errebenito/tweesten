@@ -12,7 +12,7 @@ From sources
     
     * Install tweesten (you need root access)::
     
-		$ tar zxvf tweesten-0.1.tar.gz
+		$ tar zxvf tweesten-0.1.1.tar.gz
 		$ cd tweesten
 		$ python3.4 setup.py install
 		
