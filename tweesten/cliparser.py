@@ -19,15 +19,24 @@
 from argparse import ArgumentParser
 import os.path
 import sys
-
+import logging
+import logging.handlers
 
 class CLIParser(object):
     '''CLIParser class'''
+    
     def __init__(self):
         '''Constructor for the CLIParser class'''
         self.main()
 
-    def parse_arguments(args):
+    def main(self):
+        '''main of CLIParser class'''
+        LOG_FILENAME = 'tweesten.log'
+        CLIParserLogger = logging.getLogger('CLIParserLogger')
+        CLIParserLogger.setLevel(logging.DEBUG)
+        handler = logging.handlers.RotatingFileHandler(
+              LOG_FILENAME, maxBytes=1024, backupCount=5)
+        CLIParserLogger.addHandler(handler)
         tweestenepilog = 'Homepage: https://github.com/errebenito/tweesten'
         tweestendescription = 'tweets album covers of your last.fm scrobbles'
         parser = ArgumentParser(prog='tweesten',
@@ -35,20 +44,16 @@ class CLIParser(object):
                                 epilog=tweestenepilog)
         parser.add_argument('pathtoconf', metavar='FILE', type=str,
                             help='the path to the tweesten configuration')
-        return parser.parse_args(args)
-
-    def main(self):
-        '''main of CLIParser class'''
-        parser = parse_arguments(sys.argv[1:])
-        if not os.path.exists(parser.pathtoconf):
-            print('the path you provided for the configuration does not exist')
+        args = parser.parse_args()
+        if not os.path.exists(args.pathtoconf):
+            CLIParserLogger.critical('the path you provided for the configuration does not exist')
             sys.exit(1)
-        if not os.path.isfile(parser.pathtoconf):
-            print('the path you provided for the configuration is not a file')
+        if not os.path.isfile(args.pathtoconf):
+            CLIParserLogger.critical('the path you provided for the configuration is not a file')
             sys.exit(1)
-        self.parser = parser
+        self.args = args
 
     @property
     def arguments(self):
         '''return the path to the config file'''
-        return self.parser
+        return self.args

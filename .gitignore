@@ -6,4 +6,6 @@ tweesten.egg-info/
 .coverage
 docs/build/
 htmlcov/
-                
+tweesten.log
+build/
+collage.jpg 

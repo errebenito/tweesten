@@ -55,9 +55,9 @@ class Main(object):
         '''Main of the Main class'''
         imageFetcher = ImageFetcher(self.cfgvalues)
         if not imageFetcher.error:
-            upload = self.api.media_upload(os.path.realpath('collage.png'))
+            upload = self.api.media_upload(os.path.realpath('collage.jpg'))
             ids = [upload.media_id_string]
             result = self.api.update_status(status=self.cfgvalues['message'], media_ids=ids)
-            os.remove('collage.png')
-        
+            os.remove('collage.jpg')
+            
         sys.exit(0)

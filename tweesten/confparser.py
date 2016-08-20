@@ -19,11 +19,13 @@
 # standard library imports
 import configparser
 import sys
-
+import logging
+import logging.handlers
 
 class ConfParser(object):
     '''ConfParser class'''
     def __init__(self, pathtoconf):
+        '''Constructor for the ConfParser class'''
         self.consumer_key = ''
         self.consumer_secret = ''
         self.access_token = ''
@@ -39,7 +41,12 @@ class ConfParser(object):
         
     def main(self):
         '''Main of the ConfParser class'''
-        # read the configuration file
+        LOG_FILENAME = 'tweesten.log'
+        ConfParserLogger = logging.getLogger('ConfParserLogger')
+        ConfParserLogger.setLevel(logging.DEBUG)
+        handler = logging.handlers.RotatingFileHandler(
+              LOG_FILENAME, maxBytes=1024, backupCount=5)
+        ConfParserLogger.addHandler(handler)
         conf = configparser.ConfigParser()
         try:
             with open(self.pathtoconf) as conffile:
@@ -59,25 +66,25 @@ class ConfParser(object):
                     self.error = ''
         except (configparser.Error, IOError, OSError) as err:
             self.error = 'Error accessing config file'
-            print(err)
+            ConfParserLogger.error(err)
         if self.consumer_key is None or not self.consumer_key:
-            print('no consumer key found')
+            ConfParserLogger.error('no consumer key found')
         if self.consumer_secret is None or not self.consumer_secret:
-            print('no consumer secret found')
+            ConfParserLogger.error('no consumer secret found')
         if self.access_token is None or not self.access_token:
-            print('no access token found')
+            ConfParserLogger.error('no access token found')
         if self.access_token_secret is None or not self.access_token_secret:
-            print('no access token secret found')
+            ConfParserLogger.error('no access token secret found')
         if self.username is None or not self.username:
-            print('no Last.fm username found') 
+            ConfParserLogger.error('no Last.fm username found') 
         if self.size is None or not self.size or self.size not in ['3x3','4x4','5x5','2x6','10x10']:
-            print('no valid size found, default to 3x3')
+            ConfParserLogger.warning('no valid size found, default to 3x3')
             self.size='3x3'
         if self.fromlast is None or not self.fromlast or self.fromlast not in ['7day','1month','3month','6month','overall']:
-            print('no valid time interval found, default to one week')
+            ConfParserLogger.warning('no valid time interval found, default to one week')
             self.fromlast='7day'    
         if self.caption is None or not self.caption or self.caption.lower() not in ['true','false']:
-            print('caption flag not found, default to false')
+            ConfParserLogger.warning('caption flag not found, default to false')
             self.caption='false'    
 
     @property

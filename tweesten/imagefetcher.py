@@ -18,16 +18,26 @@
 
 import urllib.request
 import sys
+import logging
+import logging.handlers
 
 class ImageFetcher(object):
     '''ImageFetcher class'''
     def __init__(self, cfgvalues):
         '''Constructor for the ImageFetcher class'''
         self.cfgvalues = cfgvalues
+        self.baseurl = ''
+        self.error = False
         self.main()
 
     def main(self):
         '''main of ImageFetcher class'''
+        LOG_FILENAME = 'tweesten.log'
+        ImageFetcherLogger = logging.getLogger('ImageFetcherLogger')
+        ImageFetcherLogger.setLevel(logging.DEBUG)
+        handler = logging.handlers.RotatingFileHandler(
+              LOG_FILENAME, maxBytes=1024, backupCount=5)
+        ImageFetcherLogger.addHandler(handler)
         self.baseurl = 'http://www.tapmusic.net/collage.php'
         self.baseurl += '?user='
         self.baseurl += self.cfgvalues['username']
@@ -37,13 +47,11 @@ class ImageFetcher(object):
         self.baseurl += self.cfgvalues['size']
         self.baseurl += '&caption='
         self.baseurl += self.cfgvalues['caption']
-
+        
         with open('collage.png', 'wb') as file:
             response = urllib.request.urlopen(self.baseurl)
-            print (self.baseurl)
-            print (response.info()['Content-type'])
             if 'image/jpeg' not in response.info()['Content-type']:
-                print('tapmusic.net premium options not available for the specified username')
+                ImageFetcherLogger.error('tapmusic.net did not return an image, ether you selected a 10x10 size and are not a premium user, or you found a bug')
                 self.error = True
             else:
                 file.write(response.read())
