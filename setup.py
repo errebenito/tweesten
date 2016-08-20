@@ -32,7 +32,7 @@ CLASSIFIERS = [
 
 setup(
     name='tweesten',
-    version='0.1.1',
+    version='0.2.0',
     license='GNU GPL v3',
     description=('twitter bot to tweet a collage of album covers ' +
                  'based on your last.fm scrobbles'),
@@ -42,7 +42,7 @@ setup(
     author='Raúl Benito',
     author_email='erre.benito@gmail.com',
     url='https://github.com/errebenito/tweesten',
-    download_url='https://github.com/errebenito/tweesten/releases/tag/v0.1.1',
+    download_url='https://github.com/errebenito/tweesten/releases/tag/v0.2.0',
     packages=['tweesten'],
     scripts=['scripts/tweesten.py'],
     install_requires=['tweepy>=3.5.0'],

@@ -17,7 +17,7 @@
 '''Image fetching'''
 
 import urllib.request
-
+import sys
 
 class ImageFetcher(object):
     '''ImageFetcher class'''
@@ -39,9 +39,15 @@ class ImageFetcher(object):
         self.baseurl += self.cfgvalues['caption']
 
         with open('collage.png', 'wb') as file:
-            file.write(urllib.request.urlopen(self.baseurl).read())
-            file.close()
-        
+            response = urllib.request.urlopen(self.baseurl)
+            print (self.baseurl)
+            print (response.info()['Content-type'])
+            if 'image/jpeg' not in response.info()['Content-type']:
+                print('tapmusic.net premium options not available for the specified username')
+                self.error = True
+            else:
+                file.write(response.read())
+                file.close()
     @property
     def url(self):
         return self.baseurl

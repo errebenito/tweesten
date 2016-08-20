@@ -3,3 +3,7 @@ tweesten/__pycache__/
 config/
 tests.py
 tweesten.egg-info/
+.coverage
+docs/build/
+htmlcov/
+                
