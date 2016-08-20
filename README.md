@@ -12,7 +12,7 @@ Tweesten is a python utility that retrieves a collage of album covers based on y
 
 * Install Tweesten from sources
 
-        # tar zxvf tweesten-0.1.tar.gz
+        # tar zxvf tweesten-0.2.0.tar.gz
         # cd tweesten
         # python3.4 setup.py install
         
