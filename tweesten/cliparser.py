@@ -27,7 +27,7 @@ class CLIParser(object):
         '''Constructor for the CLIParser class'''
         self.main()
 
-    def parse_args(args):
+    def parse_arguments(args):
         tweestenepilog = 'Homepage: https://github.com/errebenito/tweesten'
         tweestendescription = 'tweets album covers of your last.fm scrobbles'
         parser = ArgumentParser(prog='tweesten',
@@ -39,7 +39,7 @@ class CLIParser(object):
 
     def main(self):
         '''main of CLIParser class'''
-        parser = parse_args(sys.argv[1:])
+        parser = parse_arguments(sys.argv[1:])
         if not os.path.exists(parser.pathtoconf):
             print('the path you provided for the configuration does not exist')
             sys.exit(1)
