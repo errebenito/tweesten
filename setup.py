@@ -42,7 +42,7 @@ setup(
     author='Raúl Benito',
     author_email='erre.benito@gmail.com',
     url='https://github.com/errebenito/tweesten',
-    download_url='https://github.com/errebenito/tweesten/releases/tag/v0.2.0',
+    download_url='https://github.com/errebenito/tweesten/releases/tag/v0.2.1',
     packages=['tweesten'],
     scripts=['scripts/tweesten.py'],
     install_requires=['tweepy>=3.5.0'],
